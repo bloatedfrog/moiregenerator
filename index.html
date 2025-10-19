@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Générateur d'effet moiré</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
+    <script src="sketch.js" defer></script>
+</head>
+<body>
+    <header>
+        <h1>Art Numérique : générateur d'effet moiré</h1>
+    </header>
+    
+    <div id="main-content">
+        
+        <div id="controls">
+            <input type="file" id="imageUploader" accept="image/*">
+            <p>Image Originale</p>
+
+            <h2>Effet Moiré Lignes Horizontales</h2>
+            
+            <label for="numLines">Nombre de lignes (densité générale) :</label>
+            <div class="slider-group">
+                <button class="adjust-btn" data-target="numLines" data-step="-5">-</button>
+                <input type="range" id="numLines" min="1" max="250" value="1" step="1">
+                <button class="adjust-btn" data-target="numLines" data-step="5">+</button>
+                <span id="numLinesValue" class="value-display">0</span> 
+            </div>
+            
+            <label for="lineSeparation">Espacement des lignes :</label>
+            <div class="slider-group">
+                <button class="adjust-btn" data-target="lineSeparation" data-step="-0.5">-</button>
+                <input type="range" id="lineSeparation" min="-5" max="6.5" value="0" step="0.5">
+                <button class="adjust-btn" data-target="lineSeparation" data-step="0.5">+</button>
+                <span id="sepValue" class="value-display">0.0</span>
+            </div>
+
+            <label for="lineThickness">Épaisseur de la ligne :</label>
+            <div class="slider-group">
+                <button class="adjust-btn" data-target="lineThickness" data-step="-0.1">-</button>
+                <input type="range" id="lineThickness" min="0.1" max="10" value="0" step="0.1">
+                <button class="adjust-btn" data-target="lineThickness" data-step="0.1">+</button>
+                <span id="thickValue" class="value-display">0.0</span>
+            </div>
+            
+            <label for="hatchThreshold">Seuil de Hachure (Sensibilité) :</label>
+            <div class="slider-group">
+                <button class="adjust-btn" data-target="hatchThreshold" data-step="-5">-</button>
+                <input type="range" id="hatchThreshold" min="0" max="100" value="50" step="1">
+                <button class="adjust-btn" data-target="hatchThreshold" data-step="5">+</button>
+                <span id="hatchValue" class="value-display">50</span>
+            </div>
+
+            <h2>Effets Noir & Blanc</h2>
+            <div id="bw-buttons">
+                <button id="bwClassic">N&B Classique</button>
+                <button id="bwHighContrast">N&B Contraste Élevé</button>
+                <button id="bwVintage">N&B Vintage (Sépia)</button>
+                <button id="resetAll">RÉINITIALISER</button>
+            </div>
+
+            <h2>Téléchargement</h2>
+            <button id="downloadBtn">TÉLÉCHARGER L'IMAGE MODIFIÉE</button>
+        </div>
+        
+        <main id="canvas-container">
+            <p id="placeholder-text">Chargez une image pour commencer</p>
+        </main>
+    </div>
+</body>
+</html>
